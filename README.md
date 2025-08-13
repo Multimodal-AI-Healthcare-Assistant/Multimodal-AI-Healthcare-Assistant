@@ -153,6 +153,5 @@ python gradio_app.py
 ```
 
  ## "Click here to see the detailed documentation" 
----
-[another-readme.md]
----
+(another-readme.md)
+
