@@ -197,3 +197,84 @@ def text_to_speech_with_elevenlabs(input_text, output_filepath):
 
 text_to_speech_with_elevenlabs(input_text, output_filepath="elevenlabs_testing_autoplay.mp3")
 '''
+
+
+# ---------------------------------------------------------
+# Step 1a: Setup Text-to-Speech (TTS) using Google Text-to-Speech (gTTS)
+# ---------------------------------------------------------
+
+# gTTS (Google Text-to-Speech) is a Python library that connects to Google's TTS API
+# It takes text as input, processes it, and outputs an audio file in various formats (e.g., MP3).
+# This block converts the given `input_text` into an audio file using the specified `language`.
+
+from gtts import gTTS  # Import Google Text-to-Speech library
+
+# Function to convert text into speech using gTTS
+# Parameters:
+#   input_text: The text string to be converted to audio
+#   language: Language code (e.g., "en" for English)
+#   slow: Boolean value to control speech speed (False = normal speed, True = slow speech)
+#   output_filepath: File path where the generated audio will be saved
+audioobj = gTTS(
+    text=input_text,      # Text to be converted into audio
+    lang=language,        # Language of the speech (e.g., 'en')
+    slow=False            # Speech speed (False for normal speed)
+)
+
+# Save the generated speech audio to a file
+audioobj.save(output_filepath)
+
+# Example usage of the gTTS function
+input_text = "Hi this is Atharva Raut!"
+text_to_speech_with_gtts_old(
+    input_text=input_text,
+    output_filepath="gtts_testing.mp3"  # MP3 file will be saved in the working directory
+)
+
+
+# ---------------------------------------------------------
+# Step 1b: Setup Text-to-Speech (TTS) using ElevenLabs API
+# ---------------------------------------------------------
+
+# ElevenLabs provides a high-quality, AI-powered speech synthesis API.
+# It allows you to select voices, set speech speed, control format, and generate more natural-sounding audio than many basic TTS systems.
+# This code uses the ElevenLabs Python client to connect to their API and generate speech.
+
+import os
+import elevenlabs
+from elevenlabs.client import ElevenLabs  # Import the ElevenLabs API client
+
+# Retrieve ElevenLabs API Key from environment variables
+# IMPORTANT: Ensure you have set the environment variable ELEVEN_API_KEY before running the code
+ELEVENLABS_API_KEY = os.environ.get("ELEVEN_API_KEY")
+
+# Function to convert text into speech using ElevenLabs API
+# Parameters:
+#   input_text: The text to convert into audio
+#   output_filepath: The destination file path where the generated audio will be saved
+# This function uses the "Aria" voice, outputs an MP3 file at 44.1 kHz, and uses the `eleven_turbo_v2` model.
+def text_to_speech_with_elevenlabs_old(input_text, output_filepath):
+    # Create an ElevenLabs client instance with the provided API key
+    client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+    
+    # Generate audio from text
+    # Parameters:
+    #   text: The input text to synthesize
+    #   voice: Predefined voice ID or name (e.g., "Aria")
+    #   output_format: Audio format (sample rate, bitrate)
+    #   model: The TTS model version to use
+    audio = client.generate(
+        text=input_text,
+        voice="Aria",                     # Voice name from ElevenLabs voice library
+        output_format="mp3_44100_128",    # MP3, 44.1 kHz, 128 kbps
+        model="eleven_turbo_v2"           # High-speed, high-quality TTS model
+    )
+    
+    # Save the generated audio to the specified file path
+    elevenlabs.save(audio, output_filepath)
+
+# Example usage of the ElevenLabs TTS function
+text_to_speech_with_elevenlabs_old(
+    input_text=input_text,
+    output_filepath="elevenlabs_testing.mp3"  # MP3 file will be saved in the working directory
+)
