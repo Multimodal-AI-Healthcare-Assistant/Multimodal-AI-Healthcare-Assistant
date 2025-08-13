@@ -152,3 +152,7 @@ python voice_of_the_doctor.py
 python gradio_app.py
 ```
 
+ ## "Click here to see the detailed documentation" 
+---
+[another-readme.md]
+---
