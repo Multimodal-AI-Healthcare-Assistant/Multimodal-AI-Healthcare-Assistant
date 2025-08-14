@@ -33,3 +33,36 @@ An end‑to‑end, **patient–doctor interaction prototype** built with **Gradi
 -  ✅**T**esting stubs and portability (pip/conda/pipenv).
 
 ---
+
+---
+
+## 3) How it works (Pipeline)
+
+```
+[Mic Input] --(wav/mp3)--> [ASR: Groq Whisper] --(text)--> 
+     +--> [Optional Image Upload] --(base64)--> 
+            [Multimodal LLM (Groq, Meta Llama family)] --(doctor reply)--> 
+                [TTS: ElevenLabs/gTTS] --(audio)--> [Playback in Gradio]
+```
+
+Core modules (from your source code):
+
+- `voice_of_the_patient.py`  
+  - `record_audio(...)` – records mic audio and writes MP3 (uses `speech_recognition`, PortAudio, FFmpeg/pydub).  
+  - `transcribe_with_groq(...)` – sends audio to **Groq Whisper `whisper-large-v3-turbo`** and returns text.
+
+- `brain_of_the_doctor.py`  
+  - `encode_image(path)` – base64 encodes uploaded image.  
+  - `analyze_image_with_query(image_path, query, model=...)` – calls Groq **multimodal chat** with both the image and your question. Code string mentions **`"meta-llama/llama-4-maverick-17b-...-turbo"`**.
+
+- `voice_of_the_doctor.py`  
+  - `text_to_speech_with_elevenlabs(text, outpath)` – streams high‑quality TTS via **ElevenLabs**.  
+  - `text_to_speech_with_gtts(text, outpath)` – simple **gTTS** fallback (no API key needed).
+
+- `gradio_app.py`  
+  - Defines a **Gradio Interface** with:
+    - Inputs: microphone **recording** button + **image** upload.  
+    - Outputs: **transcript text**, **doctor reply**, **audio response**.  
+  - Calls the three modules above to wire the full round‑trip.
+
+---
