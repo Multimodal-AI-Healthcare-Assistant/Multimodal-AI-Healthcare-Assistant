@@ -66,3 +66,21 @@ Core modules (from your source code):
   - Calls the three modules above to wire the full round‑trip.
 
 ---
+
+## 4) Project structure (excerpt)
+
+```
+Multimodal-AI-Healthcare-Assistant-main/
+├── gradio_app.py
+├── brain_of_the_doctor.py
+├── voice_of_the_patient.py
+├── voice_of_the_doctor.py
+├── requirements.txt
+├── Pipfile
+├── .env               # holds GROQ_API_KEY / ELEVENLABS_API_KEY (do NOT commit real keys)
+└── ...                # assets, notebooks, helpers (see repo for full tree)
+```
+
+> Auto‑detected: **Gradio** app present; model artifacts folder not committed. Requirements pin **gradio**, **fastapi**, **groq**, **elevenlabs**, **speechrecognition**, **uvicorn**, etc.
+
+---
