@@ -195,3 +195,14 @@ _Notebooks in the repo mention generic metric terms; populate exact numbers afte
 ---
 
 ---
+## 11) Tech stack
+
+- UI: **Gradio**  
+- ASR: **Groq Whisper (`whisper-large-v3-turbo`)**  
+- LLM (multimodal): **Meta Llama family** via **Groq** (code references a `"llama-4-maverick-17b-...-turbo"` string)  
+- TTS: **ElevenLabs** (primary), **gTTS** (fallback)  
+- Utilities: **pydub**, **ffmpeg**, **speech_recognition**, **uvicorn/fastapi** available for API extension
+
+---
+
+---
