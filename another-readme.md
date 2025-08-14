@@ -15,3 +15,21 @@ An end‑to‑end, **patient–doctor interaction prototype** built with **Gradi
 > ⚠️ **Medical disclaimer:** This is a **technical demo** for learning and experimentation. It is **not** a medical device and must **not** be used for diagnosis or treatment. Always consult a licensed clinician.
 
 ---
+
+## 2) Key features (A → Z)
+
+- **A**udio input via microphone (PortAudio/PyAudio).  
+- **B**ase64 image encoding for safe multimodal requests.  
+- **C**hat‑style reasoning over **text + image** with a Groq‑hosted LLM.  
+- **D**evice‑agnostic web UI using **Gradio**.  
+- **E**levenLabs TTS for natural doctor‑like voice; **gTTS** as a fallback.  
+- **F**Fmpeg utilities for audio processing.  
+- **G**roq **Whisper** ASR for robust transcription (`whisper-large-v3-turbo`).  
+- **H**ardening suggestions: .env secrets, input size checks, PII redaction.  
+- **I**mage understanding through a **vision‑capable** chat model (multimodal).  
+- **J**ust‑works local run: `python gradio_app.py`.  
+- **K**ey‑based config via `.env` (`GROQ_API_KEY`, `ELEVENLABS_API_KEY`).  
+- **R**AG hooks present in code imports (future: plug a vector DB).  
+- **T**esting stubs and portability (pip/conda/pipenv).
+
+---
