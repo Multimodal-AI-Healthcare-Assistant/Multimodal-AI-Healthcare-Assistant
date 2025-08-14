@@ -67,6 +67,7 @@ Core modules (from your source code):
 
 ---
 
+---
 ## 4) Project structure (excerpt)
 
 ```
@@ -82,5 +83,48 @@ Multimodal-AI-Healthcare-Assistant-main/
 ```
 
 > Auto‑detected: **Gradio** app present; model artifacts folder not committed. Requirements pin **gradio**, **fastapi**, **groq**, **elevenlabs**, **speechrecognition**, **uvicorn**, etc.
+
+---
+
+---
+## 5) Setup
+
+### Prereqs
+- **Python**: recommended **3.13** (per `Pipfile`), 3.10+ also works for Gradio.  
+- **FFmpeg** and **PortAudio** installed on your system.  
+- Microphone permission enabled.
+
+### Install (choose one)
+
+**A) Pip (recommended)**
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+**B) Pipenv**
+```bash
+pip install pipenv
+pipenv install
+pipenv shell
+```
+
+**C) Conda**
+```bash
+conda create -n multimodal-doc python=3.11 -y
+conda activate multimodal-doc
+pip install -r requirements.txt
+```
+
+### Environment variables
+Create a `.env` in the project root:
+```
+GROQ_API_KEY=your_groq_key_here
+ELEVENLABS_API_KEY=your_elevenlabs_key_here   # optional; if omitted, falls back to gTTS
+```
 
 ---
