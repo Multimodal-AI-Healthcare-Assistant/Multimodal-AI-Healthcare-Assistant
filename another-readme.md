@@ -167,8 +167,7 @@ This app is **interactive** rather than a fixed benchmark. For meaningful evalua
 - **Hallucination** rate and refusal behavior for out‑of‑scope queries.  
 - **Latency** (ASR → LLM → TTS round‑trip).
 
-_Notebooks in the repo mention generic metric terms; populate exact numbers after your own testing._
-
+ 
 ---
 
 ---
