@@ -184,3 +184,14 @@ _Notebooks in the repo mention generic metric terms; populate exact numbers afte
 ---
 
 ---
+## 10) Troubleshooting
+
+- **FFmpeg/PortAudio missing** → install them system‑wide; on Windows ensure `ffmpeg/bin` is in `%PATH%`.  
+- **Mic not detected** → check OS permissions and default input device.  
+- **No speech output** → verify `ELEVENLABS_API_KEY`; otherwise fallback to gTTS (internet required).  
+- **Groq errors** → ensure `GROQ_API_KEY` is valid; check model name and rate limits.  
+- **Unicode on Windows** → run in UTF‑8 console (`chcp 65001`).
+
+---
+
+---
