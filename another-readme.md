@@ -4,7 +4,7 @@
 
 ---
 
-## 1) What this project is
+## 1) What this project is ?
 
 An end‑to‑end, **patient–doctor interaction prototype** built with **Gradio**. It lets a user:
 
