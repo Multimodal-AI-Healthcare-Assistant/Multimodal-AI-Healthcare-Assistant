@@ -206,3 +206,20 @@ _Notebooks in the repo mention generic metric terms; populate exact numbers afte
 ---
 
 ---
+
+## 12) Security & Compliance
+
+- Store keys only in `.env` / secret managers. **Never commit real keys.**  
+- If handling clinical data/images, ensure **de‑identification**, consent, and compliance with local laws.  
+- Add a log redactor; avoid storing raw audio/images in production.
+
+---
+
+---
+
+## 13) License & Credits
+
+- License: see repository (no explicit license file detected at generation time).  
+- Credits: Groq, ElevenLabs, Gradio, and the broader open‑source community.
+
+---
