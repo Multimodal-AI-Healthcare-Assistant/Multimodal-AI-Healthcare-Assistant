@@ -142,3 +142,19 @@ python gradio_app.py
 3. Receive: transcript → doctor reply (text) → **audio** playback.
 
 ---
+
+
+---
+
+
+## 7) Configuration & Customization
+
+- **Switch TTS provider**: set `ELEVENLABS_API_KEY` to enable premium voice; remove it to use gTTS fallback.  
+- **Change voices**: replace the ElevenLabs `voice_id` in `voice_of_the_doctor.py`.  
+- **Model choice**: in `brain_of_the_doctor.py`, adjust the `model=` string to pick another **Groq** multimodal model.  
+- **Rate‑limiting & timeouts**: add guards in the Gradio handlers for production robustness.  
+- **RAG**: hook a vector DB (FAISS/Chroma) and augment prompts with guideline passages.
+
+---
+
+---
