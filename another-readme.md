@@ -128,3 +128,17 @@ ELEVENLABS_API_KEY=your_elevenlabs_key_here   # optional; if omitted, falls back
 ```
 
 ---
+
+## 6) Run
+
+```bash
+python gradio_app.py
+# then open the local URL that Gradio prints (e.g., http://127.0.0.1:7860)
+```
+
+**What to try:**
+1. Click **Record** and ask a medical‑style question (e.g., “I have a sore throat and fever for 3 days, what could it be?”).  
+2. (Optional) Upload a relevant **image** (e.g., skin lesion).  
+3. Receive: transcript → doctor reply (text) → **audio** playback.
+
+---
