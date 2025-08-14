@@ -172,3 +172,15 @@ _Notebooks in the repo mention generic metric terms; populate exact numbers afte
 ---
 
 ---
+## 9) Real‑life applications (non‑diagnostic)
+
+- **Triage assistant** for patient education before a clinic visit.  
+- **Documentation helper** to summarize patient concerns in simple language.  
+- **Training/teaching** tool to discuss differentials given a symptom + image.  
+- **Accessibility** aid for users who prefer speaking & listening over typing/reading.
+
+> Always place a **medical disclaimer** in the UI and require human review.
+
+---
+
+---
