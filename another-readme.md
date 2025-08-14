@@ -158,3 +158,17 @@ python gradio_app.py
 ---
 
 ---
+## 8) Results & Quality Notes
+
+This app is **interactive** rather than a fixed benchmark. For meaningful evaluation, log test sessions and report:
+
+- **ASR quality** (WER/CER) across accents/noise.  
+- **Clinical helpfulness** via curated prompts (Likert scoring by SMEs).  
+- **Hallucination** rate and refusal behavior for out‑of‑scope queries.  
+- **Latency** (ASR → LLM → TTS round‑trip).
+
+_Notebooks in the repo mention generic metric terms; populate exact numbers after your own testing._
+
+---
+
+---
