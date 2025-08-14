@@ -35,7 +35,7 @@ def text_to_speech_with_elevenlabs_old(input_text, output_filepath):
     
     # Use the new text_to_speech.convert() method with correct voice ID
     audio = client.text_to_speech.convert(
-        voice_id="pNInz6obpgDQGcFmaJgB",  # Adam voice ID (reliable)
+        voice_id="pNInz6obpgDQGcFmaJgB", # Adam voice ID (reliable)
         output_format="mp3_44100_128",
         text=input_text,
         model_id="eleven_turbo_v2"
@@ -50,7 +50,7 @@ def text_to_speech_with_elevenlabs_old(input_text, output_filepath):
 #text_to_speech_with_elevenlabs_old(input_text, output_filepath="elevenlabs_testing.mp3")
 
 '''
-
+ 
 
     audioobj= gTTS(
         text=input_text,
@@ -151,14 +151,79 @@ def text_to_speech_with_elevenlabs(input_text, output_filepath):
 
 #text_to_speech_with_elevenlabs(input_text, output_filepath="elevenlabs_testing_autoplay.mp3")
 
+...
+import subprocess
+import platform
+from elevenlabs.client import ElevenLabs
+
+def text_to_speech_with_elevenlabs(input_text, output_filepath):
+    client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+    
+    # Use the new text_to_speech.convert() method
+    audio = client.text_to_speech.convert(
+        voice_id="W7iR5kTNHozpIl2Jqq15",  # <--  sia's voice
+        output_format="mp3_22050_32",
+        text=input_text,
+        model_id="eleven_turbo_v2"
+    )
+    
+    # Save the audio using chunks
+    with open(output_filepath, "wb") as f:
+        for chunk in audio:
+            f.write(chunk)
+    
+    # Autoplay the audio
+    os_name = platform.system()
+    try:
+        if os_name == "Darwin":  # macOS
+            subprocess.run(['afplay', output_filepath])
+        elif os_name == "Windows":  # Windows
+            subprocess.run(['powershell', '-c', f'Start-Process "{output_filepath}"'], check=True)
+        elif os_name == "Linux":  # Linux
+            subprocess.run(['mpg123', output_filepath])  # Use mpg123 for MP3
+        else:
+            raise OSError("Unsupported operating system")
+    except Exception as e:
+        print(f"An error occurred while trying to play the audio: {e}")
+...
+...
+
+import subprocess
+import platform
+from elevenlabs.client import ElevenLabs
+
+def text_to_speech_with_elevenlabs(input_text, output_filepath):
+    client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+    
+    # Use the new text_to_speech.convert() method
+    audio = client.text_to_speech.convert(
+        voice_id="fEJqMD6Jp1JFP8T1BZpd",  # <-- bhavna voice 
+        output_format="mp3_22050_32",
+        text=input_text,
+        model_id="eleven_turbo_v2"
+    )
+    
+    # Save the audio using chunks
+    with open(output_filepath, "wb") as f:
+        for chunk in audio:
+            f.write(chunk)
+    
+    # Autoplay the audio
+    os_name = platform.system()
+    try:
+        if os_name == "Darwin":  # macOS
+            subprocess.run(['afplay', output_filepath])
+        elif os_name == "Windows":  # Windows
+            subprocess.run(['powershell', '-c', f'Start-Process "{output_filepath}"'], check=True)
+        elif os_name == "Linux":  # Linux
+            subprocess.run(['mpg123', output_filepath])  # Use mpg123 for MP3
+        else:
+            raise OSError("Unsupported operating system")
+    except Exception as e:
+        print(f"An error occurred while trying to play the audio: {e}")
 
 
-
-
-
-
-
-
+...
 
 
 
